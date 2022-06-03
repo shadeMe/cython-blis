@@ -242,6 +242,8 @@ class ExtensionBuilder(distutils.command.build_ext.build_ext, build_ext_options)
 
                 spec["target"] = os.path.join(obj_dir, target_name)
                 spec["source"] = os.path.join(BLIS_DIR, spec["source"])
+                spec["flags"].append("-g")
+
                 if compiler is not None:
                     spec["compiler"] = compiler
                 if platform == "windows":
