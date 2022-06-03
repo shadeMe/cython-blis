@@ -12,11 +12,11 @@ if [ ! -f $JSONL ]; then
     echo "Compile"
     if [[ "$OS" == "windows" ]]; then
         mingw32-make clean
-        ./configure --disable-blas --disable-cblas --disable-shared --disable-threading --int-size=64 --enable-verbose-make --enable-arg-max-hack $ARCH
+        ./configure --disable-blas --disable-cblas --disable-shared --disable-threading --int-size=64 --enable-verbose-make --enable-arg-max-hack  --enable-debug=opt $ARCH
         mingw32-make -j 4 > make.log
     else
         make clean
-        ./configure --disable-blas --disable-cblas --disable-shared --disable-threading --int-size=64 --enable-verbose-make $ARCH
+        ./configure --disable-blas --disable-cblas --disable-shared --disable-threading --int-size=64 --enable-verbose-make  --enable-debug=opt $ARCH
         make > make.log 
     fi
     echo "Preprocess make log"
